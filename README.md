@@ -1,4 +1,4 @@
-# Instantjs
+# Django Instant client
 
 Client for the [django-instant](https://github.com/synw/django-instant) websockets backend
 
@@ -13,7 +13,7 @@ yarn add instantjs
 Initialize the client
 
 ```typescript
-import { Instant } from "instantjs";
+import { Instant } from "djangoinstant";
 
 const instant = new Instant(
   "http://localhost:8000", // Django backend's address
@@ -44,7 +44,7 @@ await instant.get_token();
 Define a handler function and use it for all incoming messages:
 
 ```typescript
-import { Message } from "instantjs";
+import { Message } from "djangoinstant";
 
 function onMessage(msg: Message): void {
   switch (msg.channelName) {

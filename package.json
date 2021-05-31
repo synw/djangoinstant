@@ -1,5 +1,5 @@
 {
-  "name": "instantjs",
+  "name": "djangoinstant",
   "version": "0.1.0",
   "description": "Client for the django-instant websockets backend",
   "main": "lib/index.js",
