@@ -3,9 +3,9 @@
 Client for the [django-instant](https://github.com/synw/django-instant) websockets backend
 
 ```
-npm install instantjs
+npm install djangoinstant
 // or
-yarn add instantjs
+yarn add djangoinstant
 ```
 
 ## Usage
