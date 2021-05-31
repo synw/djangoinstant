@@ -88,3 +88,7 @@ console.log("Websockets connected");
 
 By default the `connect` function will subscribe to all the authorized channels
 for the user provided by the backend. To avoid this use `await instant.connect(false)`
+
+## Example
+
+An [example](https://github.com/synw/django-instant-example) with a backend and a frontend is available
