@@ -42,13 +42,13 @@ export default class Instant {
 
   _subscribeToAllChannels(): void {
     this.channels.forEach((c) => {
-      //const sub = 
       this.client.subscribe(c.name, (message: Record<string, any>) => {// eslint-disable-line
-        console.log(JSON.stringify(message, null, "  "))
-        const msg = this._process_raw_message(message.data)
+        if (this.verbose) {
+          console.log(message)
+        }
+        const msg = this._process_raw_message(JSON.parse(message.data))
         this._onMessage(msg);
       })
-      //sub.on("subscribe", (ctx) => console.log("SUBSCRIPTION", ctx));
     });
   }
 
