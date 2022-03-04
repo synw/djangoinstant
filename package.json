@@ -1,9 +1,7 @@
 {
   "name": "djangoinstant",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Client for the django-instant websockets backend",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
   "scripts": {
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,8 +9,17 @@
   "files": [
     "/lib"
   ],
+  "main": "./lib/index.js",
+  "module": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./lib/index.js",
+      "require": "./lib/index.js"
+    }
+  },
   "dependencies": {
-    "centrifuge": "^2.7.5"
+    "centrifuge": "^2.8.4"
   },
   "devDependencies": {
     "tslib": "^2.1.0",
