@@ -1,28 +1,29 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
-    "strict": true,
-    "importHelpers": true,
+    "target": "esnext",
+    "module": "esnext",
     "moduleResolution": "node",
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
+    "strict": true,
     "sourceMap": false,
-    "baseUrl": ".",
-    "rootDir": "src",
-    "outDir": "lib",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
     "declaration": true,
+    "allowSyntheticDefaultImports": true,
+    //"isolatedModules": true,
+    "outDir": "./lib",
+    "allowJs": true,
+    "removeComments": true,
+    "strictFunctionTypes": true,
     "paths": {
       "@/*": [
         "src/*"
       ]
     },
     "lib": [
-      "es6",
-      "ES2015",
+      "esnext",
       "dom"
     ],
+    "baseUrl": ".",
   },
   "include": [
     "src/**/*.ts"
