@@ -13,17 +13,20 @@ yarn add djangoinstant
 Initialize the client
 
 ```typescript
-import { Instant } from "djangoinstant";
+import { useInstant } from "./packages/djangoinstant/client";
 
-const instant = new Instant(
-  "http://localhost:8000", // Django backend's address
-  "ws://localhost:8001", // Centrifugo server's address
-  true, // verbosity (optional, default: false)
-);
+const instant = useInstant();
+
+async function initWs() {
+  await instant.init(
+    "http://localhost:8000",
+    "ws://localhost:8427",
+    true)
+}
 ```
 
 A classic [centrifuge-js](https://github.com/centrifugal/centrifuge-js) client is 
-accessible with `instant.client`
+accessible with `instant.getClient()`
 
 ### Get a websockets connection authorization
 
@@ -62,7 +65,7 @@ function onMessage(msg: Message): void {
   }
 }
 
-instant.onMessage = onMessage;
+instant.onMessage(onMessage);
 ```
 
 Message structure:
@@ -87,7 +90,12 @@ console.log("Websockets connected");
 ```
 
 By default the `connect` function will subscribe to all the authorized channels
-for the user provided by the backend. To avoid this use `await instant.connect(false)`
+for the user provided by the backend. To avoid this use `await instant.connect(false)`. To
+subscribe later to all channels:
+
+```typescript
+instant.subscribe();
+```
 
 ## Example
 

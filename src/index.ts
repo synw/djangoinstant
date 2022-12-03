@@ -1,4 +1,4 @@
-import Instant from "./base";
+import { useInstant } from "./client";
 import Message from "./message";
 
-export { Instant, Message }
+export { useInstant, Message }
