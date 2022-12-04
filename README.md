@@ -1,5 +1,7 @@
 # Django Instant client
 
+[![pub package](https://img.shields.io/npm/v/djangoinstant)](https://www.npmjs.com/package/djangoinstant)
+
 Client for the [django-instant](https://github.com/synw/django-instant) websockets backend
 
 ```
@@ -17,16 +19,18 @@ import { useInstant } from "./packages/djangoinstant/client";
 
 const instant = useInstant();
 
-async function initWs() {
-  await instant.init(
-    "http://localhost:8000",
-    "ws://localhost:8427",
-    true)
-}
+await instant.init(
+    "http://localhost:8000", // backend url
+    "ws://localhost:8427", // websockets url
+    true // verbosity
+)
 ```
 
-A classic [centrifuge-js](https://github.com/centrifugal/centrifuge-js) client is 
-accessible with `instant.getClient()`
+`init` structure:
+
+```typescript
+(backendUrl: string, websocketsUrl: string, verbose?: boolean) => Promise<void>
+```
 
 ### Get a websockets connection authorization
 
@@ -96,6 +100,9 @@ subscribe later to all channels:
 ```typescript
 instant.subscribe();
 ```
+
+Note: a classic [centrifuge-js](https://github.com/centrifugal/centrifuge-js) client is 
+accessible with `instant.getClient()`
 
 ## Example
 
