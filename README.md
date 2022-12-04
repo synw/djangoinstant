@@ -15,7 +15,7 @@ yarn add djangoinstant
 Initialize the client
 
 ```typescript
-import { useInstant } from "./packages/djangoinstant/client";
+import { useInstant } from "djangoinstant";
 
 const instant = useInstant();
 
