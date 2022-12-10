@@ -1,21 +1,21 @@
 {
   "name": "djangoinstant",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Client for the django-instant websockets backend",
   "scripts": {
-    "build": "tsc",
+    "build": "rm -f dist/* && rollup -c",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "files": [
-    "/lib"
+    "/dist"
   ],
-  "main": "./lib/index.js",
-  "module": "./lib/index.js",
-  "types": "./lib/index.d.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.es.js",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./lib/index.js",
-      "require": "./lib/index.js"
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.cjs.min.js"
     }
   },
   "dependencies": {
@@ -23,9 +23,13 @@
   },
   "devDependencies": {
     "tslib": "^2.1.0",
-    "typescript": "^4.2.3"
+    "typescript": "^4.2.3",
+    "rollup": "^2.70.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "@rollup/plugin-commonjs": "^21.0.2",
+    "@rollup/plugin-node-resolve": "^13.1.3",
+    "@rollup/plugin-typescript": "^8.3.1"
   },
-  "prepublish": "tsc",
   "author": "synw",
   "license": "MIT",
   "repository": {
